@@ -40,15 +40,6 @@ const ITEMS = [
 		icon: '🎯',
 		tags: ['action', 'shooter'],
 	},
-		{
-			id: 'tetris',
-			type: 'game',
-			title: 'Tetris',
-			desc: 'Falling blocks puzzle. 방향키로 조작, Q/W 회전.',
-			href: 'Tetris.html',
-			icon: '🟦',
-			tags: ['puzzle', 'classic', 'tetris'],
-		},
 	{
 		id: 'juklim',
 		type: 'game',
