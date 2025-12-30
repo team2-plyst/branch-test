@@ -50,6 +50,15 @@ const ITEMS = [
 		tags: ['action', 'reflex'],
 	},
 	{
+		id: 'dodge',
+		type: 'game',
+		title: '피하기',
+		desc: '떨어지는 장애물을 피하며 가능한 오래 살아남으세요. 좌/우 또는 마우스 이동으로 조작합니다.',
+		href: 'DodgeGame.html',
+		icon: '🏃‍♂️',
+		tags: ['arcade','dodge'],
+	},
+	{
 		id: 'brick',
 		type: 'game',
 		title: '벽돌깨기',
