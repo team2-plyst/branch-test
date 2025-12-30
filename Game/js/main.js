@@ -40,6 +40,15 @@ const ITEMS = [
 		icon: '🎯',
 		tags: ['action', 'shooter'],
 	},
+	{
+		id: '2048',
+		type: 'game',
+		title: '2048',
+		desc: '같은 숫자를 합쳐 2048을 만들어보세요! 방향키로 조작.',
+		href: '2048.html',
+		icon: '🔢',
+		tags: ['puzzle', '2048', 'number'],
+	},
 		{
 			id: 'tetris',
 			type: 'game',
