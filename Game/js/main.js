@@ -41,6 +41,15 @@ const ITEMS = [
 		tags: ['action', 'shooter'],
 	},
 	{
+		id: 'juklim',
+		type: 'game',
+		title: '죽림고수',
+		desc: '반응 속도를 겨루는 간단한 두목 잡기 게임입니다. 나타나는 표적을 클릭하세요!',
+		href: 'JuklimGosu.html',
+		icon: '🥷',
+		tags: ['action', 'reflex'],
+	},
+	{
 		id: 'guide-add',
 		type: 'guide',
 		title: 'Add a New Game',
