@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>죽림고수</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* 간단한 게임 스타일 */
+    .game-wrap { padding: 20px; max-width: 720px; margin: 24px auto; text-align: center; }
+    .hud { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; }
+    .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; }
+    .hole { background:#0e1114; border:1px solid #22262b; border-radius:10px; padding:24px 0; min-height:84px; display:grid; place-items:center; cursor:pointer; transition:transform .1s ease; }
+    .mole { width:56px; height:56px; background:linear-gradient(180deg,#ffd36b,#ff9f43); border-radius:50%; display:grid; place-items:center; font-weight:bold; color:#2b1b00; }
+    .hole:active { transform: translateY(2px); }
+    .controls { display:flex; gap:8px; justify-content:center; margin-top:12px; }
+  </style>
+</head>
+<body>
+  <div class="game-wrap">
+    <h1>죽림고수</h1>
+    <p class="muted">나타나는 표적을 빠르게 클릭해 점수를 올리세요. 시간 제한 내에 최대 점수를 노립니다.</p>
+
+    <div class="hud">
+      <div>Score: <strong id="score">0</strong></div>
+      <div>Time: <strong id="time">30</strong>s</div>
+    </div>
+
+    <div id="grid" class="grid" aria-live="polite"></div>
+
+    <div class="controls">
+      <button id="startBtn" class="primary-btn">Start</button>
+      <button id="restartBtn" class="secondary-btn">Restart</button>
+      <a href="main.html" class="secondary-btn">Back</a>
+    </div>
+
+    <p id="message" class="muted" style="margin-top:12px"></p>
+  </div>
+
+  <script src="js/juklim.js"></script>
+</body>
+</html>
