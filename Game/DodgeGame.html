@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>피하기</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .dg-wrap { max-width: 720px; margin: 24px auto; padding: 16px; text-align: center; }
+    canvas { background: linear-gradient(180deg,#041021,#072033); border-radius:8px; display:block; margin: 12px auto; }
+    .hud { display:flex; justify-content:space-between; max-width:720px; margin:0 auto 8px; }
+    .controls { display:flex; gap:8px; justify-content:center; margin-top:8px; }
+    .muted { color:#9aa4b2; }
+  </style>
+</head>
+<body>
+  <div class="dg-wrap">
+    <h1>피하기</h1>
+    <p class="muted">좌/우 화살표 또는 마우스로 이동해 떨어지는 장애물을 피하세요. 스페이스로 시작/일시정지.</p>
+    <div class="hud">
+      <div>Time: <strong id="dg-time">0</strong>s</div>
+      <div>Score: <strong id="dg-score">0</strong></div>
+    </div>
+    <canvas id="dg-canvas" width="720" height="420"></canvas>
+    <div class="controls">
+      <button id="dg-start" class="primary-btn">Start</button>
+      <button id="dg-reset" class="secondary-btn">Reset</button>
+      <a href="main.html" class="secondary-btn">Back</a>
+    </div>
+    <p id="dg-msg" class="muted" style="margin-top:10px"></p>
+  </div>
+
+  <script src="js/dodge.js"></script>
+</body>
+</html>
