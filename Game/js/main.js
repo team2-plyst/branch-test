@@ -41,6 +41,15 @@ const ITEMS = [
 		tags: ['action', 'shooter'],
 	},
 	{
+		id: 'bounceball',
+		type: 'game',
+		title: '공튀기기',
+		desc: '패들로 공을 튕겨 점수를 올리세요! 좌우 방향키 조작.',
+		href: 'BounceBall.html',
+		icon: '🏓',
+		tags: ['arcade', 'ball', 'paddle'],
+	},
+	{
 		id: '2048',
 		type: 'game',
 		title: '2048',
