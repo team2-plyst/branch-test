@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+		<!--
+			파일: main.html
+			목적: 미니게임 허브 메인 페이지 레이아웃
+			API 개요:
+				- 컴포넌트
+					- #sidebar: 좌측 사이드바 (data-filter, data-action 사용)
+					- #content: 메인 콘텐츠 영역
+					- #cards: 카드 그리드, js/main.js 에서 동적 렌더링
+					- #modal: 모달 루트 (openModal/closeModal 로 제어)
+				- 템플릿
+					- #tpl-about, #tpl-shortcuts, #tpl-guide-add: 모달 내용으로 주입되는 HTML 템플릿
+				- 키보드 단축키
+					- /: 검색창 포커스, B: 사이드바 토글, Esc: 모달 닫기
+			확장 방법:
+				- 새 게임/가이드는 js/main.js 의 ITEMS 배열에 항목 추가
+				- 새 가이드 템플릿은 아래 <template> 블록 추가 후 template ID 연결
+		-->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Mini Games Hub</title>
+	<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+	<div id="app">
+				<!-- Sidebar: 좌측 네비게이션. 모바일에서는 .open 클래스로 열림/닫힘 -->
+		<aside id="sidebar" class="sidebar">
+			<div class="brand">
+				<button id="closeSidebar" class="icon-btn" aria-label="Close sidebar" title="Close (B)">✕</button>
+				<span class="logo">🎲</span>
+				<div class="brand-text">
+					<strong>Mini Games Hub</strong>
+					<small>Play • Learn • Build</small>
+				</div>
+			</div>
+						<!-- nav-item 들은 data-filter 또는 data-action 으로 동작을 정의 -->
+						<nav class="nav">
+				<a href="#" class="nav-item active" data-filter="all">
+					<span>🏠 Home</span>
+				</a>
+				<a href="#" class="nav-item" data-filter="game">
+					<span>🎮 Games</span>
+				</a>
+				<a href="#" class="nav-item" data-filter="guide">
+					<span>📘 Guides</span>
+				</a>
+				<a href="#" class="nav-item" data-action="open-about">
+					<span>ℹ️ About</span>
+				</a>
+			</nav>
+			<div class="sidebar-footer">
+				<button id="toggleTheme" class="secondary-btn" title="Toggle theme">🌓 Theme</button>
+			</div>
+		</aside>
+
+				<!-- Main content: 상단 바 + 카드 목록 -->
+		<main id="content">
+			<header class="topbar">
+				<button id="openSidebar" class="icon-btn" aria-label="Open sidebar" title="Menu (B)">☰</button>
+				<div class="search">
+					<input id="searchInput" type="search" placeholder="Search games, guides, tags… (/)" aria-label="Search" />
+				</div>
+				<div class="top-actions">
+					<button id="aboutBtn" class="secondary-btn">About</button>
+					<button id="shortcutsBtn" class="secondary-btn" title="Keyboard shortcuts">?</button>
+				</div>
+			</header>
+
+			<section class="intro">
+				<h1>Welcome</h1>
+				<p>
+					This hub collects mini games and development guides. Use the sidebar to browse
+					Games and Guides. Press / to search, B to toggle sidebar.
+				</p>
+			</section>
+
+			<section>
+								<!-- 카드 컨테이너: js/main.js 의 renderCards() 가 생성한 카드들이 들어감 -->
+								<div id="cards" class="cards-grid" aria-live="polite"></div>
+			</section>
+		</main>
+	</div>
+
+		<!-- Modal root: openModal(title, html) 로 열고, data-action="close-modal" 로 닫음 -->
+	<div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+		<div class="modal-backdrop" data-action="close-modal"></div>
+		<div class="modal-panel">
+			<header class="modal-header">
+				<h2 id="modalTitle"></h2>
+				<button class="icon-btn" data-action="close-modal" aria-label="Close">✕</button>
+			</header>
+			<div id="modalBody" class="modal-body"></div>
+			<footer class="modal-footer">
+				<button class="primary-btn" data-action="close-modal">Close (Esc)</button>
+			</footer>
+		</div>
+	</div>
+
+		<!-- Hidden templates (rendered into modal): 아래 템플릿은 모달 본문으로 주입됨 -->
+	<template id="tpl-about">
+		<div class="about">
+			<p>Mini Games Hub is a simple launcher for small games and coding guides.</p>
+			<ul>
+				<li>Press / to focus search</li>
+				<li>Press B to toggle sidebar</li>
+				<li>Use categories on the left to filter</li>
+			</ul>
+			<p>
+				Roadmap: more games, guide pages, favorites, and progress tracking.
+			</p>
+		</div>
+	</template>
+
+	<template id="tpl-shortcuts">
+		<div class="shortcuts">
+			<ul>
+				<li>/ – Focus search</li>
+				<li>B – Toggle sidebar</li>
+				<li>Esc – Close modal</li>
+				<li>1/2/3 – Quick select in dialogs (future)</li>
+			</ul>
+		</div>
+	</template>
+
+	<template id="tpl-guide-add">
+		<div class="guide">
+			<h3>How to add a new game</h3>
+			<ol>
+				<li>Create your HTML at the root (e.g., <code>NewGame.html</code>).</li>
+				<li>Add styles to <code>css/</code> and scripts to <code>js/</code> if needed.</li>
+				<li>Edit <code>js/main.js</code> and add a new card in the data list with type "game" and the link to your page.</li>
+			</ol>
+		</div>
+	</template>
+
+	<script src="js/jquery-3.7.1.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

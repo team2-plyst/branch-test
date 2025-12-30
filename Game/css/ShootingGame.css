@@ -1,0 +1,118 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#gameContainer {
+    position: relative;
+    border: 2px solid #333;
+    /* lock logical game size and center content */
+    width: 800px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+canvas {
+    display: block;
+    background-color: #fff;
+    /* Use intrinsic pixel size for canvas drawing while allowing responsive scaling */
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#uiContainer {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #333;
+    font-size: 18px;
+}
+
+/* modal base style */
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.75);
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.modalInner {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#gameOverScreen h2 {
+    margin: 0;
+    font-size: 48px;
+}
+
+#gameOverScreen p {
+    font-size: 24px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    margin-top: 20px;
+}
+
+#startButton {
+    font-size: 24px;
+    padding: 15px 30px;
+}
+
+/* #gameCanvas intrinsic size is provided by attributes in HTML; CSS sets responsive scaling above */
+
+#levelUpModal {
+    display: none;
+}
+
+#levelUpChoices {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+#levelUpInstructions .relicInstructions {
+    font-size: 12px;
+    opacity: 0.9;
+    margin-top: 10px;
+}
+
+#relicModal {
+    display: none;
+}
+
+#relicChoices {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+#startButtonContainer {
+    margin-top: 12px;
+}

@@ -1,0 +1,63 @@
+<!-- 
+    파란색 네모를 플레이어를 두고 빨간색 네모를 적으로 두는 간단한 슈팅 게임입니다.
+    w,a,s,d는 이동 방향키는 조준으로 하고 조작합니다. (자동으로 탄막을 발사하여 공격하고 방향키로 조작시 웹 스크롤 내림 방지)
+    여러 아이템이 존재하며 아이템을 먹으면 플레이어의 능력치가 상승합니다.
+    또한 적을 처치할 때마다 경험치를 얻어 레벨업을 할 수 있습니다.
+    적은 시간이 지날수록 점점 강해지며 적을 처치시 일정 확률로 아이템을 드랍합니다.
+    적을 처치하고 시간이 지날수록 점수가 올라가며 게임 오버시 점수가 기록됩니다.
+    시작 버튼과 재시작 버튼이 존재합니다. (단축키 포함)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Shooting Game</title>
+    <link rel="stylesheet" href="css/ShootingGame.css">
+</head>
+
+<body>
+    <h1>Simple Shooting Game</h1>
+    <div id="gameContainer">
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="uiContainer">
+            <div>Score: <span id="score">0</span></div>
+            <div>Level: <span id="level">1</span></div>
+            <div>HP: <span id="hp">100</span> / <span id="maxHp">100</span></div>
+            <div>EXP: <span id="exp">0</span> / <span id="maxExp">100</span></div>
+            <div>Time: <span id="time">0</span>s</div>
+        </div>
+        <div id="gameOverScreen" class="modal">
+            <div class="modalInner">
+                <h2>GAME OVER</h2>
+                <p>Final Score: <span id="finalScore">0</span></p>
+                <button id="restartButton">Restart (R)</button>
+            </div>
+        </div>
+        <!-- 레벨업 선택 모달: 플레이어가 레벨업 하면 게임을 일시정지하고 세 가지 선택지를 보여줍니다 -->
+        <div id="levelUpModal" class="modal">
+            <div class="modalInner">
+                <h2>Level Up! Choose a Reward</h2>
+                <div id="levelUpChoices"></div>
+                <p id="levelUpInstructions">Use mouse or press 1-3 to select.</p>
+            </div>
+        </div>
+        <!-- 레릭(유물) 선택 모달: 보스가 떨군 아이템이나 레벨업 후 표시 -->
+        <div id="relicModal" class="modal">
+            <div class="modalInner">
+                <h2>Choose a Relic</h2>
+                <div id="relicChoices"></div>
+                <p id="relicInstructions">Select a relic to empower your character.</p>
+            </div>
+        </div>
+    </div>
+    <div id="startButtonContainer">
+        <button id="startButton">Start Game (Enter)</button>
+    </div>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/ShootingGame.js"></script>
+</body>
+
+</html>
