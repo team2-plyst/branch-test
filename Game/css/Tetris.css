@@ -1,0 +1,13 @@
+body {
+    background: #222;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+}
+#tetris {
+    background: #111;
+    display: block;
+    margin: 30px auto;
+    border: 2px solid #fff;
+    box-shadow: 0 0 20px #000;
+}
