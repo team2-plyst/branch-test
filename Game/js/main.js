@@ -50,6 +50,15 @@ const ITEMS = [
 		tags: ['action', 'reflex'],
 	},
 	{
+		id: 'brick',
+		type: 'game',
+		title: '벽돌깨기',
+		desc: '클릭 또는 방향키로 패들을 조작해 공으로 모든 벽돌을 깨세요.',
+		href: 'BrickBreaker.html',
+		icon: '🧱',
+		tags: ['arcade','classic'],
+	},
+	{
 		id: 'guide-add',
 		type: 'guide',
 		title: 'Add a New Game',

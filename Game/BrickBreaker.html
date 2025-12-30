@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>벽돌깨기</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .bb-wrap { max-width: 820px; margin: 20px auto; padding: 16px; text-align:center; }
+    canvas { background: linear-gradient(180deg,#071018,#0b1a22); border-radius:8px; display:block; margin: 0 auto; }
+    .controls { display:flex; gap:8px; justify-content:center; margin-top:12px; }
+    .muted { color: #9aa4b2; }
+  </style>
+</head>
+<body>
+  <div class="bb-wrap">
+    <h1>벽돌깨기</h1>
+    <p class="muted">좌/우 화살표 또는 마우스로 패들을 조작하세요. 스페이스로 시작/일시정지.</p>
+    <div style="display:flex;justify-content:space-between;max-width:720px;margin:12px auto 6px;">
+      <div>Score: <strong id="bb-score">0</strong></div>
+      <div>Lives: <strong id="bb-lives">3</strong></div>
+    </div>
+    <canvas id="bb-canvas" width="720" height="400"></canvas>
+
+    <div class="controls">
+      <button id="bb-start" class="primary-btn">Start</button>
+      <button id="bb-reset" class="secondary-btn">Reset</button>
+      <a href="main.html" class="secondary-btn">Back</a>
+    </div>
+    <p id="bb-msg" class="muted" style="margin-top:10px"></p>
+  </div>
+
+  <script src="js/brickbreaker.js"></script>
+</body>
+</html>
